@@ -1,10 +1,22 @@
 import ExpenseDate from "./ExpenseDate";
-
+import ExpenseItem from "./ExpenseItem";
 function App() {
+  const expenses = [
+    {
+      date: new Date(2024, 10, 12),
+      title: "new book",
+      price: 30.99,
+    },
+    {
+      date: new Date(2026, 0, 1),
+      title: "new book",
+      price: 30.99,
+    },
+  ];
   return (
     <>
-      <ExpenseDate year="2025" month="january" day="2"></ExpenseDate>
-      <ExpenseDate year="2025" month="january" day="1"></ExpenseDate>
+      <ExpenseItem data={expenses[0]}></ExpenseItem>
+      <ExpenseItem data={expenses[1]}></ExpenseItem>
     </>
   );
 }
