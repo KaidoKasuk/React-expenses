@@ -1,7 +1,7 @@
 // //imports
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "./ExpenseDate.jsx";
 import "./ExpenseItem.css";
-import Card from "./Card";
+import Card from "../UI/Card.jsx";
 function ExpenseItem(props) {
   return (
     //üks item
