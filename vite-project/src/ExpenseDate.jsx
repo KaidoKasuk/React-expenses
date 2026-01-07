@@ -1,5 +1,6 @@
 //imports
 import PropTypes from "prop-types";
+import "./ExpenseDate.css";
 
 //hea tava BroCode jargi
 ExpenseDate.propTypes = {

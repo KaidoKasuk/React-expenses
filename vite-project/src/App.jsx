@@ -1,24 +1,8 @@
-import ExpenseDate from "./ExpenseDate";
-import ExpenseItem from "./ExpenseItem";
+import Expenses from "./Expense.jsx";
 function App() {
-  const expenses = [
-    {
-      date: new Date(2024, 10, 12),
-      title: "new book",
-      price: 30.99,
-    },
-    {
-      date: new Date(2026, 0, 1),
-      title: "new book",
-      price: 30.99,
-    },
-  ];
   return (
     <>
-      <div className="expenses">
-        <ExpenseItem data={expenses[0]}></ExpenseItem>
-        <ExpenseItem data={expenses[1]}></ExpenseItem>
-      </div>
+      <Expenses></Expenses>
     </>
   );
 }
