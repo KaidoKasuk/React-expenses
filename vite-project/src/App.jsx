@@ -15,8 +15,10 @@ function App() {
   ];
   return (
     <>
-      <ExpenseItem data={expenses[0]}></ExpenseItem>
-      <ExpenseItem data={expenses[1]}></ExpenseItem>
+      <div className="expenses">
+        <ExpenseItem data={expenses[0]}></ExpenseItem>
+        <ExpenseItem data={expenses[1]}></ExpenseItem>
+      </div>
     </>
   );
 }
