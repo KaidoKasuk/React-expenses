@@ -11,7 +11,7 @@ const Expenses = () => {
     },
     {
       date: new Date(2026, 0, 1),
-      title: "new book",
+      title: "new Jeans",
       price: 30.99,
     },
   ];
