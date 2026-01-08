@@ -1,13 +1,9 @@
-import Header from "./header.jsx";
-import Footer from "./Footer.jsx";
-import Food from "./Food.jsx";
+import Lesson from "./lesson.jsx";
+
 function App() {
   return (
     <>
-      <Header></Header>
-      <Food></Food>
-      <Food></Food>
-      <Footer></Footer>
+      <Lesson></Lesson>
     </>
   );
 }
