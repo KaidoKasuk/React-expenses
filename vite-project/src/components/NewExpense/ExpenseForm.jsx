@@ -1,13 +1,8 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
+import PropTypes, { func } from "prop-types";
 
 function ExpenseForm(props) {
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: " ",
-  //   enteredPrice: " ",
-  //   enteredDate: " ",
-  // });
-
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -29,11 +24,11 @@ function ExpenseForm(props) {
       price: enteredPrice,
       date: new Date(enteredDate),
     };
+    props.onSaveExpenseData(expenseData);
     //et tühjendada peale saatmist väljad
     setEnteredTitle("");
     setEnteredPrice("");
     setEnteredDate("");
-    console.log(expenseData);
   };
 
   return (

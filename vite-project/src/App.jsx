@@ -1,14 +1,19 @@
 import Expenses from "./components/Expense.jsx";
-import NewExpense from "./components/NexExpense/NewExpense.jsx";
-import ExpenseForm from "./components/NexExpense/ExpenseForm.jsx";
-import "./components/NexExpense/NewExpense.css";
+import NewExpense from "./components/NewExpense/NewExpense.jsx";
+import "./components/NewExpense/NewExpense.css";
+import expenses from "./components/Expense.jsx"; //andmed seal
+
 function App() {
+  const addExpenseHandler = (expense) => {
+    console.log("in app.js");
+    console.log(expense);
+  };
   return (
     <>
-      <div className="new-expense">
-        <ExpenseForm></ExpenseForm>
-        <NewExpense></NewExpense>
-        <Expenses></Expenses>
+      <div className="App">
+        <NewExpense onAddExpense={addExpenseHandler} />
+
+        <Expenses expenses={expenses} />
       </div>
     </>
   );
