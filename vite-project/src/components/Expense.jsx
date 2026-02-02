@@ -4,29 +4,24 @@ import Card from "../UI/Card.jsx";
 import ExpensesFilter from "./Expenses/ExpensesFilter.jsx";
 import { useState } from "react";
 
-const Expenses = () => {
+const Expenses = (props) => {
   //incoming year
   const filterChangeHandler = (year) => {
     console.log(`year is ${year}`);
   };
-  const expenses = [
-    {
-      date: new Date(2024, 10, 12),
-      title: "new book",
-      price: 30.99,
-    },
-    {
-      date: new Date(2026, 0, 1),
-      title: "new Jeans",
-      price: 30.99,
-    },
-  ];
+
+  props.expenses.map((expense) => {
+    console.log(expense);
+  });
 
   return (
     <Card className="expenses">
-      <ExpensesFilter onChangeFilter={filterChangeHandler}></ExpensesFilter>
-      <ExpenseItem data={expenses[0]}></ExpenseItem>
-      <ExpenseItem data={expenses[1]}></ExpenseItem>
+      <ExpensesFilter onChangeFilter={filterChangeHandler} />
+      {props.expenses.map((expense) => {
+        return (
+          <ExpenseItem expenseData={expense} key={expense.id}></ExpenseItem>
+        );
+      })}
     </Card>
   );
 };
