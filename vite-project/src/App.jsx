@@ -2,7 +2,7 @@ import Expenses from "./components/Expense.jsx";
 import NewExpense from "./components/NewExpense/NewExpense.jsx";
 import "./components/NewExpense/NewExpense.css";
 import { useState } from "react";
-const dummyExpenses = [
+let dummyExpenses = [
   {
     id: "id1",
     date: new Date(2024, 10, 12),
@@ -22,6 +22,7 @@ const dummyExpenses = [
     price: 300.99,
   },
 ];
+
 function App() {
   const [expenses, SetExpenses] = useState(dummyExpenses);
   const addExpenseHandler = (expense) => {

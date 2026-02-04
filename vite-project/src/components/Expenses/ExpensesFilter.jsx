@@ -6,10 +6,15 @@ import Expenses from "../Expense";
 const ExpensesFilter = (props) => {
   // Expense Filter
   const [selectedYear, setSelectedYear] = useState("2024");
-  props.onChangeFilter(selectedYear);
-  //Filter update
+
+  //esimene render
+  useEffect(() => {
+    props.onChangeFilter(selectedYear);
+  }, []);
+  //onchange
   const changeHandler = (event) => {
     setSelectedYear(event.target.value);
+    props.onChangeFilter(event.target.value);
   };
   return (
     <div className="expenses-filter">
