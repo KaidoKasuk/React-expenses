@@ -12,7 +12,6 @@ function ExpenseItem(props) {
     setTitle(`Updated by click ${title}`);
     console.log(title);
   };
-
   return (
     //üks item
     <li>
@@ -23,8 +22,6 @@ function ExpenseItem(props) {
           <h2>{props.expenseData.title}</h2>
           <div className="expense-item_price">{props.expenseData.price}</div>
         </div>
-
-        <button onClick={clickHandler}>Click me</button>
       </Card>
     </li>
   );
