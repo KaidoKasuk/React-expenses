@@ -1,7 +1,7 @@
 // //imports
 import ExpenseDate from "./ExpenseDate.jsx";
 import "./ExpenseItem.css";
-import Card from "../UI/Card.jsx";
+import Card from "../../UI/Card.jsx";
 import { useState } from "react";
 
 function ExpenseItem(props) {
@@ -15,16 +15,18 @@ function ExpenseItem(props) {
 
   return (
     //üks item
-    <Card className="expense-item">
-      <ExpenseDate date={props.expenseData.date} />
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.expenseData.date} />
 
-      <div className="expense-item_description">
-        <h2>{props.expenseData.title}</h2>
-        <div className="expense-item_price">{props.expenseData.price}</div>
-      </div>
+        <div className="expense-item_description">
+          <h2>{props.expenseData.title}</h2>
+          <div className="expense-item_price">{props.expenseData.price}</div>
+        </div>
 
-      <button onClick={clickHandler}>Click me</button>
-    </Card>
+        <button onClick={clickHandler}>Click me</button>
+      </Card>
+    </li>
   );
 }
 export default ExpenseItem;

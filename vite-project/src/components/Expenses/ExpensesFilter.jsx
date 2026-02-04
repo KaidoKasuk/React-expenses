@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ExpensesFilter.css";
 import PropTypes from "prop-types";
-import Expenses from "../Expense";
+import Expenses from "./Expense.jsx";
 
 const ExpensesFilter = (props) => {
   // Expense Filter
