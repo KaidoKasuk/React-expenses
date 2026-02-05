@@ -1,0 +1,47 @@
+import React, { Fragment } from "react";
+import ReactDOM from "react-dom";
+
+import Card from "./Card.jsx";
+import Button from "./Button";
+import "./Error.css";
+
+const BackDrop = () => {
+  return <div className="backdrop"></div>;
+};
+
+const ModalOverlay = (props) => {
+  return (
+    <Card className="modal">
+      <header className="header">
+        <h2>{props.title}</h2>
+      </header>
+      <div className="content">
+        <p>{props.message}</p>
+      </div>
+      <footer className="footer">
+        <Button onClick={props.onConfirm}>OK</Button>
+      </footer>
+    </Card>
+  );
+};
+
+const Error = (props) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <BackDrop onConfirm={props.onConfirm}></BackDrop>,
+        document.getElementById("backdrop-root"),
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay
+          title={props.title}
+          message={props.message}
+          onConfirm={props.onConfirm}
+        ></ModalOverlay>,
+        document.getElementById("overlay-root"),
+      )}
+    </>
+  );
+};
+
+export default Error;
