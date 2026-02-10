@@ -1,12 +1,18 @@
 import express from "express";
-
+import fs from "node:fs/promises";
 const app = express();
 
 app.use((req, res, next) => {
-  res.setHeader("Acsess-Control-Allow-Origin", "*");
-  res.setHeader("Acsess-Control-Allow-Methods", "GET");
-  res.setHeader("Acsess-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   next();
+});
+
+app.get("/expenses", async (req, res) => {
+  const fileContent = await fs.readFile("./data/expenses.json");
+  const expensesData = JSON.parse(fileContent);
+  res.status(200).json({ expenses: expensesData });
 });
 
 app.listen(5000, () => {

@@ -1,20 +1,20 @@
 [
   {
     "id": "id1",
-    "date": "2023-01-18T22:00.00.00Z",
-    " title": "new book",
-    " price": 30.99
+    "date": "2024-01-18T22:00:00Z",
+    "title": "new book",
+    "price": 30.99
   },
   {
     "id": "id2",
-    "date": "2023-01-18T22:00.00.00Z",
-    " title": "new Jeans",
-    " price": 30.99
+    "date": "2026-01-18T22:00:00Z",
+    "title": "new Jeans",
+    "price": 30.99
   },
   {
     "id": "id3",
-    " date": "2023-01-18T22:00.00.00Z",
-    " title": "new Phone",
+    "date": "2025-01-18T22:00:00Z",
+    "title": "new Phone",
     "price": 300.99
   }
 ]

@@ -4,6 +4,10 @@ import ExpenseItem from "./ExpenseItem.jsx";
 const ExpenseList = (props) => {
   return (
     <>
+      {props.isLoading && (
+        <p className="expenses-list__fallback">Fetching expenses data...</p>
+      )}
+
       {props.expenses.length === 0 && (
         <p className="expenses-list__fallback">No Expenses found</p>
       )}
