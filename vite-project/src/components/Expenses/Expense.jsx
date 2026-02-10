@@ -7,8 +7,7 @@ import ExpenseList from "./ExpensesList.jsx";
 const Expenses = (props) => {
   const [filteredExpenses, setFilteredExpenses] = useState("2024");
 
-  console.log("year data in Expense.jsx" + filteredExpenses);
-  console.log(props.expenses);
+  // console.log("year data in Expense.jsx" + filteredExpenses);
   //sissetulev year
   const filterChangeHandler = (year) => {
     console.log(`year is ${year}`);
