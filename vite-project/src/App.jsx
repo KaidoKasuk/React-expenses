@@ -3,7 +3,10 @@ import NewExpense from "./components/NewExpense/NewExpense.jsx";
 import "./components/NewExpense/NewExpense.css";
 import { useState, useEffect } from "react";
 import Error from "./UI/Error.jsx";
-
+import MainHeader from "./components/Mainheader/MainHeader.jsx";
+import "./App.css";
+import Login from "./components/Login/Login.jsx";
+import Home from "./components/Home/Home.jsx";
 function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [expenses, SetExpenses] = useState([]);
@@ -62,8 +65,47 @@ function App() {
     };
     addExpense(expense);
   };
+  //sisselogimine
+  const [loggedIn, setLoggedIn] = useState(() => {
+    if (JSON.parse(localStorage.getItem("isLoggedUser")) !== null) {
+      return JSON.parse(localStorage.getItem("isLoggedUser")).isLogged;
+    } else {
+      return false;
+    }
+  });
+
+  console.log(loggedIn, "kas on sisse logitud?");
+
+  useEffect(() => {
+    const storedLoggedUserData = JSON.parse(
+      localStorage.getItem("isLoggedUser"),
+    );
+    if (storedLoggedUserData !== null) {
+      if (storedLoggedUserData.isLogged === true) {
+        setLoggedIn(true);
+      }
+    }
+  }, []);
+
+  const loginHandler = (user, password) => {
+    const loggedUser = localStorage.setItem(
+      "isLoggedUser",
+      JSON.stringify({
+        username: user,
+        isLogged: true,
+      }),
+    );
+    setLoggedIn(true);
+  };
+
   return (
     <>
+      <MainHeader></MainHeader>
+      <main>
+        {!loggedIn && <Login onLogin={loginHandler}></Login>}
+        {loggedIn && <Home></Home>}
+      </main>
+
       <div className="App">
         {showError && (
           <Error
