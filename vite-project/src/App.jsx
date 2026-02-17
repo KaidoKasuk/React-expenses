@@ -7,6 +7,7 @@ import MainHeader from "./components/Mainheader/MainHeader.jsx";
 import "./App.css";
 import Login from "./components/Login/Login.jsx";
 import Home from "./components/Home/Home.jsx";
+import AuthContext from "./store/auth-context.jsx";
 function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [expenses, SetExpenses] = useState([]);
@@ -110,27 +111,31 @@ function App() {
   };
   return (
     <>
-      <MainHeader
-        isAuthenticated={loggedIn}
-        onLogout={logOutHandler}
-      ></MainHeader>
-      <main>
-        {!loggedIn && <Login onLogin={loginHandler}></Login>}
-        {loggedIn && <Home></Home>}
-      </main>
+      <AuthContext.Provider
+        value={{
+          loggedIn: loggedIn,
+          onLogout: logOutHandler,
+        }}
+      >
+        <MainHeader onLogout={logOutHandler}></MainHeader>
+        <main>
+          {!loggedIn && <Login onLogin={loginHandler}></Login>}
+          {loggedIn && <Home></Home>}
+        </main>
 
-      <div className="App">
-        {showError && (
-          <Error
-            title={error.title}
-            message={error.message}
-            onConfirm={errorHandler}
-          />
-        )}
-        <NewExpense onAddExpense={addExpenseHandler} />
+        <div className="App">
+          {showError && (
+            <Error
+              title={error.title}
+              message={error.message}
+              onConfirm={errorHandler}
+            />
+          )}
+          <NewExpense onAddExpense={addExpenseHandler} />
 
-        <Expenses expenses={expenses} isLoading={isFetching} />
-      </div>
+          <Expenses expenses={expenses} isLoading={isFetching} />
+        </div>
+      </AuthContext.Provider>
     </>
   );
 }
