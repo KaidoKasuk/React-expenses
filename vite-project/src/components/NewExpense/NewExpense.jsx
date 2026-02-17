@@ -18,7 +18,7 @@ function NewExpense(props) {
   //formTOGGLE
   const FormEditHandler = (state) => {
     setEditForm(state);
-    console.log(editForm);
+    // console.log(editForm);
   };
   return (
     <div className="new-expense">

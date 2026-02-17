@@ -43,7 +43,8 @@ function App() {
   const addExpenseHandler = (expense) => {
     const addExpense = async (expense) => {
       try {
-        console.log(JSON.stringify(expense));
+        console.log(JSON.stringify(expense), "stringifyed expense");
+
         const response = await fetch("http://localhost:5000/add-expense", {
           method: "POST",
           body: JSON.stringify(expense),
@@ -54,7 +55,11 @@ function App() {
           throw new Error("Failed saving data");
         }
         const responseData = await response.json();
-        SetExpenses((prevExpenses) => [expense, ...prevExpenses]);
+        console.log(responseData);
+        if (!response.ok) {
+          throw new Error("Failed saving data");
+        }
+        SetExpenses([expense, ...expenses]);
       } catch (error) {
         setError({
           title: "An error occured!",
@@ -74,7 +79,7 @@ function App() {
     }
   });
 
-  console.log(loggedIn, "kas on sisse logitud?");
+  // console.log(loggedIn, "kas on sisse logitud?");
 
   useEffect(() => {
     const storedLoggedUserData = JSON.parse(

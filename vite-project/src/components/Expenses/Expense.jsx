@@ -10,7 +10,7 @@ const Expenses = (props) => {
   // console.log("year data in Expense.jsx" + filteredExpenses);
   //sissetulev year
   const filterChangeHandler = (year) => {
-    console.log(`year is ${year}`);
+    // console.log(`year is ${year}`);
     setFilteredExpenses(year);
   };
 
@@ -18,7 +18,6 @@ const Expenses = (props) => {
     return new Date(expense.date).getFullYear().toString() === filteredExpenses;
   });
 
-  console.log(filteredYear);
   return (
     <Card className="expenses">
       <ExpensesFilter onChangeFilter={filterChangeHandler} />
