@@ -1,8 +1,7 @@
 import "./Navigation.css";
 import Button from "../../UI/Button";
-import PropTypes from "prop-types";
 import AuthContext from "../../store/auth-context";
-const Navigation = (props) => {
+const Navigation = () => {
   return (
     <AuthContext.Consumer>
       {(context) => {
@@ -14,6 +13,11 @@ const Navigation = (props) => {
               </li>
               <li>
                 <a href="/admin">Admin</a>
+              </li>
+              <li>
+                <a className="theme" onClick={context.changeTheme}>
+                  Change theme
+                </a>
               </li>
               {context.loggedIn && (
                 <li>

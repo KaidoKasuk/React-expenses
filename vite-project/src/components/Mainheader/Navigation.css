@@ -14,8 +14,22 @@
 .nav a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
 }
 
 .nav a:hover {
   color: #f3cafb;
+}
+
+a.theme {
+  text-decoration: none;
+  background-color: #a892ee;
+  color: #1b0334;
+  cursor: pointer;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin-right: 1rem;
 }

@@ -20,3 +20,6 @@
   color: #666;
   cursor: not-allowed;
 }
+.button:hover {
+  color: #f3cafb;
+}

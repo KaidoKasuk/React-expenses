@@ -13,6 +13,7 @@ function App() {
   const [expenses, SetExpenses] = useState([]);
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
+  const [theme, setTheme] = useState(false);
 
   useEffect(() => {
     const getExpenses = async () => {
@@ -109,12 +110,25 @@ function App() {
     localStorage.removeItem("isLoggedUser");
     setLoggedIn(false);
   };
+  const themeHanlder = () => {
+    if (theme) {
+      setTheme(false);
+    } else setTheme(true);
+  };
+  useEffect(() => {
+    if (theme) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [theme]);
   return (
     <>
       <AuthContext.Provider
         value={{
           loggedIn: loggedIn,
           onLogout: logOutHandler,
+          changeTheme: themeHanlder,
         }}
       >
         <MainHeader onLogout={logOutHandler}></MainHeader>
