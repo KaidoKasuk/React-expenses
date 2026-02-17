@@ -1,3 +1,19 @@
+How to use:
+
+1. Clone React-expenses
+
+Commands when project cloned:
+
+2. FIRST TERMINAL (from \React-expenses)
+   cd vite-project
+   npm install
+   npm run dev
+
+3. SECOND TERMINAL (from \React-expenses)
+   cd vite-project
+   cd-backend
+   npm start
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
