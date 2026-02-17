@@ -1,6 +1,7 @@
 import "./Navigation.css";
-
-const Navigation = () => {
+import Button from "../../UI/Button";
+import PropTypes from "prop-types";
+const Navigation = (props) => {
   return (
     <nav className="nav">
       <ul>
@@ -10,6 +11,11 @@ const Navigation = () => {
         <li>
           <a href="/admin">Admin</a>
         </li>
+        {props.loggedIn && (
+          <li>
+            <Button onClick={props.onLogout}>Logout</Button>
+          </li>
+        )}
       </ul>
     </nav>
   );

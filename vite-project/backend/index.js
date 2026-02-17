@@ -20,7 +20,7 @@ app.get("/expenses", async (req, res) => {
 
 app.post("/add-expense", async (req, res) => {
   const expenseData = req.body;
-  console.log(req.body, "re");
+  console.log(req.body);
   const newExpense = {
     ...expenseData,
     id: (Math.random() * 1000).toString(),

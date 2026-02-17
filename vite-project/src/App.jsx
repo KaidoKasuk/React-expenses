@@ -103,9 +103,17 @@ function App() {
     setLoggedIn(true);
   };
 
+  const logOutHandler = () => {
+    console.log("logging out");
+    localStorage.removeItem("isLoggedUser");
+    setLoggedIn(false);
+  };
   return (
     <>
-      <MainHeader></MainHeader>
+      <MainHeader
+        isAuthenticated={loggedIn}
+        onLogout={logOutHandler}
+      ></MainHeader>
       <main>
         {!loggedIn && <Login onLogin={loginHandler}></Login>}
         {loggedIn && <Home></Home>}
