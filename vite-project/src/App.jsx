@@ -49,11 +49,14 @@ function App() {
       try {
         console.log(JSON.stringify(expense), "stringifyed expense");
 
-        const response = await fetch("http://localhost:5000/add-expense", {
-          method: "POST",
-          body: JSON.stringify(expense),
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+          "https://api-expenses.kaidokasuk.eu/expenses",
+          {
+            method: "POST",
+            body: JSON.stringify(expense),
+            headers: { "Content-Type": "application/json" },
+          },
+        );
 
         if (!response.ok) {
           throw new Error("Failed saving data");
