@@ -1,6 +1,12 @@
 import express from "express";
 import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const expensesFile = path.join(__dirname, "data", "expenses.json");
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -13,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/expenses", async (req, res) => {
-  const fileContent = await fs.readFile("./data/expenses.json");
+  const fileContent = await fs.readFile(expensesFile);
   const expensesData = JSON.parse(fileContent);
   res.status(200).json({ expenses: expensesData });
 });
@@ -25,11 +31,11 @@ app.post("/add-expense", async (req, res) => {
     ...expenseData,
     id: (Math.random() * 1000).toString(),
   };
-  const fileContent = await fs.readFile("./data/expenses.json", "utf-8");
+  const fileContent = await fs.readFile(expensesFile, "utf-8");
   const expensesData = JSON.parse(fileContent);
   expensesData.push(newExpense);
 
-  await fs.writeFile("./data/expenses.json", JSON.stringify(expensesData));
+  await fs.writeFile(expensesFile, JSON.stringify(expensesData));
   res.status(201).json({ message: "Expense is added" });
 });
 
