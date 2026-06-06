@@ -33,7 +33,7 @@ app.post("/add-expense", async (req, res) => {
   res.status(201).json({ message: "Expense is added" });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
