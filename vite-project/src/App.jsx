@@ -19,7 +19,9 @@ function App() {
     const getExpenses = async () => {
       setIsFetching(true);
       try {
-        const response = await fetch("http://localhost:5000/expenses");
+        const response = await fetch(
+          "https://api-expenses.kaidokasuk.eu/expenses",
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
