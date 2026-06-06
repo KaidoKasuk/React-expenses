@@ -50,7 +50,7 @@ function App() {
         console.log(JSON.stringify(expense), "stringifyed expense");
 
         const response = await fetch(
-          "https://api-expenses.kaidokasuk.eu/expenses",
+          "https://api-expenses.kaidokasuk.eu/add-expense",
           {
             method: "POST",
             body: JSON.stringify(expense),
