@@ -103,7 +103,7 @@ const Login = (props) => {
         <div
           className={`control ${emailState.isValid === false ? "invalid" : ""}`}
         >
-          <label htmlFor="Email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
